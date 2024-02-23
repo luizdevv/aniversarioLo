@@ -1,0 +1,43 @@
+// teste 1
+
+const answer = (N) => {
+    // true = even
+    // false = odd
+
+    let Z = false;
+
+    if (N % 2 === 0) {
+        return !Z
+    }  else {
+        return Z
+    }
+};
+
+// teste 2
+
+const answer2 = (S) => {
+    // true = properly nested
+    // false = not nested
+
+
+    let colchetes = "()[]{}",
+    colchete,
+    i_Colchete,
+    resposta = [];
+
+    for (var i = 0, l = S.length; i < l; i++) {
+        colchete = S[i];
+        i_Colchete = colchetes.indexOf(colchete);
+
+        if (i_Colchete == -1) continue;
+
+        if (i_Colchete %2 === 0) {
+            resposta.push(colchetes[i_Colchete+1]);
+        }
+        else if (resposta.pop() !== colchete) {
+            return false;
+        }
+    }
+
+    return !resposta.length;
+}
